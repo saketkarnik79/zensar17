@@ -1,0 +1,53 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>
+			JS Demo
+		</title>
+		<body>
+			<h1>JS Demo</h1>
+			<div id='root'>
+			
+			</div>
+			<script type="text/javascript">
+				<!-- function say(message="Hi") { -->
+					<!-- console.log(message); -->
+				<!-- } -->
+							
+				<!-- say('Hello');//Hello -->
+				<!-- say(); //Hi -->
+				<!-- say(34.56); //34.56 -->
+				<!-- function add(x = 20, y = 10){ -->
+					<!-- return x + y; -->
+				<!-- } -->
+				<!-- //let res=add(200, 100); -->
+				<!-- //console.log(res); -->
+				<!-- console.log(add(200, 100)); -->
+				<!-- console.log(add(200)); -->
+				<!-- console.log(add()); -->
+				
+				<!-- function say(message) {  -->
+					<!-- message = typeof message !== 'undefined' ? message : 'Hi'; -->
+					<!-- console.log(message);  -->
+				<!-- } -->
+				<!-- say('Hello'); -->
+				<!-- say(); -->
+				
+				function createDiv(height = '100px', width = '100px', border = 'solid 1px red') {
+					let div = document.createElement('div');
+					div.style.height = height;
+					div.style.width = width;
+					div.style.border = border;
+					div.style.background = 'yellow';
+					//document.body.appendChild(div);
+					return div;
+				}
+				let content=createDiv();
+				<!-- console.log(content); -->
+				<!-- alert(content); -->
+				let root = document.getElementById('root');
+				root.appendChild(content);
+			</script>
+		</body>
+	</head>
+</html>

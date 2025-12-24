@@ -1,0 +1,147 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>
+			JS Demo
+		</title>
+		<body>
+			<h1>JS Demo</h1>
+			<script type="text/javascript">
+				<!-- var a = 10; -->
+				<!-- console.log(a); -->
+				
+				function DemoFunc(){
+					<!-- if(a % 2 === 0){ -->
+						<!-- let a = 10; -->
+						<!-- a+=56; -->
+					<!-- } -->
+					 
+					<!-- //a+=56; -->
+					<!-- //console.log(a); -->
+					<!-- console.log("From DemoFunc() - " + a); -->
+					<!-- for (var i = 0; i < 5; i++) { -->
+						<!-- setTimeout(function () { -->
+							<!-- console.log(i); -->
+						<!-- }, 5000); -->
+					<!-- } -->
+					<!-- for (var i = 0; i < 5; i++) { -->
+						<!-- (function (j) { -->
+							<!-- setTimeout(function () { -->
+								<!-- console.log(j); -->
+							<!-- }, 1000); -->
+						<!-- })(i); -->
+					<!-- } -->
+					<!-- for (let i = 0; i < 5; i++) { -->
+						<!-- setTimeout(function () { -->
+							<!-- console.log(i); -->
+						<!-- }, 1000); -->
+					<!-- } -->
+					<!-- var counter = 0; -->
+					<!-- counter = "Hello"; -->
+					<!-- var counter; //Redeclaration is allowed -->
+					<!-- var counter="Hello"; //Redeclaration is allowed -->
+					<!-- console.log(counter); // 0 -->
+					
+					<!-- let counter = 0; -->
+					<!-- let counter; -->
+					<!-- console.log(counter); -->
+					
+					<!-- { -->
+						<!-- //var counter; -->
+						<!-- console.log(counter); //  -->
+						<!-- //var counter = 10; -->
+						<!-- //counter=10; -->
+						<!-- let counter =10; -->
+					<!-- } -->
+					<!-- { // enter new scope, TDZ starts -->
+						<!-- let log = function () { -->
+							<!-- console.log(message); // message declared later -->
+						<!-- }; -->
+
+						<!-- // This is the TDZ and accessing log -->
+						<!-- // would cause a ReferenceError -->
+
+						<!-- let message= 'Hello'; // TDZ ends -->
+						<!-- log(); // called outside TDZ -->
+					<!-- } -->
+					<!-- { // TDZ starts -->
+						<!-- //let myVar=10; -->
+						<!-- console.log(typeof myVar); // undefined -->
+						<!-- console.log(typeof message); // ReferenceError -->
+						<!-- let message=10; // TDZ ends -->
+					<!-- } -->
+					<!-- const a=10; -->
+					<!-- console.log(a); -->
+					<!-- console.log(typeof a); -->
+					
+					<!-- const person = { age: 20 }; -->
+					<!-- person.age = 30; // OK -->
+					<!-- console.log(person.age); // 30 -->
+					<!-- person= {age:60};//TypeError (hence, not allowed) -->
+					
+					<!-- const person = Object.freeze({age: 20}); -->
+					<!-- person.age = 30; // TypeError -->
+					<!-- console.log(person.age); -->
+					
+					<!-- const company = Object.freeze({ -->
+						<!-- name: 'ABC corp', -->
+						<!-- address: { -->
+							<!-- street: 'North 1st street', -->
+							<!-- city: 'San Jose', -->
+							<!-- state: 'CA', -->
+							<!-- country:'', -->
+							<!-- zipcode: 95134 -->
+						<!-- } -->
+					<!-- }); -->
+					<!-- company.address.country = 'USA'; //Allowed as Object.freeze is shallow -->
+					
+					<!-- console.log(company); -->
+					
+					<!-- const company = Object.freeze({ -->
+						<!-- name: 'ABC corp', -->
+						<!-- address: Object.freeze({ -->
+							<!-- street: 'North 1st street', -->
+							<!-- city: 'San Jose', -->
+							<!-- state: 'CA', -->
+							<!-- country:'', -->
+							<!-- zipcode: 95134 -->
+						<!-- }) -->
+					<!-- }); -->
+					<!-- company.address.country = 'USA'; //Allowed as Object.freeze is shallow -->
+					
+					<!-- console.log(company); -->
+					
+					<!-- const colors = ['red']; -->
+					<!-- colors.push('green'); -->
+					<!-- console.log(colors); // ["red", "green"] -->
+
+					<!-- colors.pop(); -->
+					<!-- console.log(colors); // [] -->
+					
+					<!-- colors.pop(); -->
+					<!-- console.log(colors); // [] -->
+					
+
+					<!-- colors = []; // TypeError -->
+					
+					<!-- let scores = [75, 80, 95]; -->
+
+					<!-- <!-- for (const score of scores) { --> -->
+						<!-- <!-- //score++; --> -->
+						<!-- <!-- console.log(score); --> -->
+					<!-- <!-- } --> -->
+					<!-- for(let i=0; i<scores.length; i++){ -->
+						<!-- //scores[i]++; -->
+						<!-- console.log(scores[i]); -->
+					<!-- } -->
+					
+					<!-- console.log(scores); -->
+				}
+				
+				DemoFunc();
+				
+				//console.log(a);
+			</script>
+		</body>
+	</head>
+</html>

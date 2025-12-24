@@ -1,0 +1,82 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>
+			JS Demo
+		</title>
+		<body>
+			<h1>JS Demo</h1>
+			<div id='root'>
+			
+			</div>
+			<script type="text/javascript">
+				<!-- let obj={name: "James", age: 56, email: "james@xyz.com"}; -->
+				<!-- console.log(obj);	 -->
+				<!-- function createMachine(name, status){ -->
+					<!-- return { -->
+						<!-- name: name, -->
+						<!-- status: status -->
+					<!-- }; -->
+				<!-- } -->
+				
+				<!-- function createMachine(name, status){ -->
+					<!-- return { -->
+						<!-- name, -->
+						<!-- status -->
+					<!-- }; -->
+				<!-- } -->
+				
+				<!-- let obj=createMachine("Dev", "Active"); -->
+				<!-- console.log(obj); -->
+				<!-- console.log(obj.name); -->
+				
+				<!-- let name = 'Computer'; -->
+				<!-- let status = 'On'; -->
+				
+				<!-- let machine = { name, status }; -->
+				<!-- console.log(machine); -->
+				<!-- console.log(machine.status); -->
+				
+				<!-- let name = 'machine name'; -->
+				<!-- let machine = { -->
+					<!-- [name] : 'Server', -->
+					<!-- 'machine hours': 10000 -->
+				<!-- }; -->
+				<!-- console.log(machine); -->
+				<!-- console.log(machine[name]); -->
+				<!-- console.log(machine['machine hours']); -->
+				
+				<!-- let prefix = 'machine'; -->
+				<!-- let machine = { -->
+					<!-- [prefix + ' name']: 'server', -->
+					<!-- [prefix + ' hours']: 10000 -->
+				<!-- }; -->
+
+				<!-- console.log(machine['machine name']); // server -->
+				<!-- console.log(machine['machine hours']); // 10000 -->
+				
+				<!-- let server = { -->
+				<!-- name: "Server", -->
+				<!-- restart: function () { -->
+						<!-- console.log("The " + this.name + " is restarting..."); -->
+					<!-- } -->
+				<!-- }; -->
+				<!-- console.log(server.name); -->
+				<!-- server.restart(); -->
+				
+				let server = {
+					name: "Server",
+					restart() {
+						console.log("The " + this.name + " is restarting...");
+					},
+					'starting up'() {
+						console.log("The " +  this.name + " is starting up!");
+					}
+				};
+				console.log(server.name);
+				server.restart();
+				server['starting up']();
+			</script>
+		</body>
+	</head>
+</html>

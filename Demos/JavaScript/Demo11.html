@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String.startswith() Demo</title>
+</head>
+<body>
+    <h1>String.startswith() Demo</h1>
+    <script>
+        const title = 'This is sample string data.';
+        let result = title.startsWith('Is', 2 );
+        console.log({ result });
+        // result = title.startsWith(/T/);
+        // console.log({ result } );
+        // result = title.endsWith('data.');
+        // console.log({ result });
+        result = title.includes('is');
+        console.log({ result });
+        
+    </script>
+</body>
+</html>
