@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Proxy Demo</title>
+</head>
+<body>
+    <h1>JS Proxy Demo</h1>
+    <script>
+        const user = {
+            firstName: 'Jenny',
+            lastName: 'Smith',
+            email: 'jenny@mi6.com',
+            age: 30
+        };
+        const handler = {
+            get(target, property){
+                // console.log(`Property ${property} has been read.`);
+                // return target[property];
+
+                let res = (property === 'fullName') 
+                    ? `${target.firstName} ${target.lastName}`
+                    : target[property];
+                return res;
+            },
+            set(target, property, value){
+                if(property === 'age'){
+                    if(typeof value !== 'number'){
+                        throw new Error('Age must be a number.');
+                    } 
+                    if(value < 18){
+                        throw new Error('The user must be 18 years of age or older.');
+                    }
+                }
+                target[property] = value;
+            },
+            apply (target, thisArg, args){
+                const result = Reflect.apply(target, thisArg, args);
+                return typeof (result === 'string') ? result.toUpperCase() : result;
+            }          
+        };
+        const proxyUser = new Proxy(user, handler);
+
+        //console.log(`First Name: ${proxyUser.firstName}, Last Name: ${proxyUser.lastName}, email: ${proxyUser.email}`);
+        console.log(`First Name: ${proxyUser.firstName}, Last Name: ${proxyUser.lastName}, Age: ${proxyUser.age} email: ${proxyUser.email}, Full Name: ${proxyUser.fullName}`);
+        //proxyUser.age = 'Blah Blah';
+        proxyUser.age = 31;
+        console.log(`First Name: ${proxyUser.firstName}, Last Name: ${proxyUser.lastName}, Age: ${proxyUser.age} email: ${proxyUser.email}, Full Name: ${proxyUser.fullName}`);
+
+        function getFullName(){
+            return proxyUser.fullName;
+        }
+
+        const proxyUser2 = new Proxy(getFullName, handler);
+        console.log(proxyUser2());
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Reflection Demo</title>
+</head>
+<body>
+    <h1>JS Reflection Demo</h1>
+    <script>
+        class Person{
+            constructor(firstName, lastName){
+                this.firstName = firstName;
+                this.lastName = lastName
+            }
+
+            get fullName(){
+                return `${this.firstName} ${this.lastName}`;
+            }
+        };
+
+        let args = ['James', 'Bond'];
+
+        let james= Reflect.construct(
+            Person,
+            args
+        );
+
+        console.log(james instanceof Person);
+        console.log(james.fullName);
+
+        let result = Reflect.apply(Math.max, Math, [10, 200, 30]);
+        console.log(result);
+        if(Reflect.defineProperty(james, 'age', { writable: true, configurable: true, enumerable: false, value: 25 } )){
+            console.log(james.age);
+        }
+        else{
+            console.log('Cannot define the age property on this object.');
+        }
+    </script>
+</body>
+</html>
