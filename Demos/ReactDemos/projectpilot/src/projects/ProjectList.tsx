@@ -1,13 +1,27 @@
 import { Project } from "./models/Project";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectForm } from "./ProjectForm";
+import { useState } from "react";
 
 interface ProjectListProps{
     projects: Project[];
+    onSave: (project: Project) => void;
 }
 
-function ProjectList({projects}: ProjectListProps) {
+//function ProjectList({projects}: ProjectListProps) {
+function ProjectList({projects, onSave}: ProjectListProps) {
     //const { projects } = props;
+    const [projectBeingEdited, setProjectBeingEdited] = useState({});
+
+    const handleEdit = (project: Project) => {
+        //console.log(project);
+        setProjectBeingEdited(project);
+    };
+
+    const cancelEditing = () => {
+        setProjectBeingEdited({});
+    };
+
     return (
         <>
             {/* <pre>
@@ -37,8 +51,16 @@ function ProjectList({projects}: ProjectListProps) {
                                     <p>Budget: {project.budget.toLocaleString()}</p>
                                 </section>
                             </div> */}
-                            <ProjectCard project={project} />
-                            <ProjectForm />
+                            {/* <ProjectCard project={project} /> */}
+                            {/* <ProjectCard project={project} onEdit={handleEdit} />
+                            <ProjectForm /> */}
+                            {
+                                project === projectBeingEdited 
+                                //? (<ProjectForm />)
+                                //? (<ProjectForm onCancel={cancelEditing} onSave={onSave} />)
+                                ? (<ProjectForm onCancel={cancelEditing} onSave={onSave} project={project} />)
+                                : (<ProjectCard project={project} onEdit={handleEdit} />)
+                            }
                         </div>
                     ))
                 }
