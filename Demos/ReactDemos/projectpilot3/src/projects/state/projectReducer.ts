@@ -27,10 +27,14 @@ function projectReducer(state: ProjectState = initialProjectState, action: Proje
         case LOAD_PROJECTS_SUCCESS: {
             let projects: Project[];
             const { page } = action.payload;
+            //console.log(page);
             if(page === 1){
                 projects = action.payload.projects;
+                //console.log('payload:'+action.payload);
             } else {
                 projects =[...state.projects, ...action.payload.projects]
+                //console.log('payload:'+action.payload);
+
             }
             return {
                 ...state,

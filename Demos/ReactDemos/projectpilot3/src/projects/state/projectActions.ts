@@ -19,7 +19,17 @@ function loadProjects(page: number): ThunkAction<void, ProjectState, null, Actio
         dispatch({type: LOAD_PROJECTS_REQUEST});
         return projectAPI.get(page)
             .then((data) => {
-                dispatch({type: LOAD_PROJECTS_SUCCESS, payload: {projects: data, page }});
+                //console.log(data);
+                //const plainProjects = data.map(project => ({ ...project }));
+                const plainProjects = data.map(project => ({
+                ...project,
+                // Convert Date objects to ISO string representation
+                contractSignedOn: project.contractSignedOn instanceof Date
+                    ? project.contractSignedOn.toISOString()
+                    : project.contractSignedOn,
+                }));
+
+                dispatch({type: LOAD_PROJECTS_SUCCESS, payload: {projects: plainProjects, page }});
             })
             .catch((error) => {
                 dispatch({type: LOAD_PROJECTS_FAILURE, payload: error});
